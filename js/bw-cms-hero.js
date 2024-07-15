@@ -19,6 +19,7 @@ class CMSHero extends LitElement {
     }
 
     :host {
+      display: block;
       -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
       -moz-box-sizing: border-box; /* Firefox, other Gecko */
       box-sizing: border-box;
