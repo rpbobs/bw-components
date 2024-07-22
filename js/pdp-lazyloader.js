@@ -2,17 +2,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const allComponents = document.querySelectorAll('bw-pdp-accordion, bw-pdp-accordion-item, bw-ytembed, bw-columns, bw-fw-banner, bw-2col-layout, bw-bgbanner-card, bw-overline-lists, bw-overline-list, bw-icon-list, bw-icon-lists');
 
   const componentMap = {
-    'bw-pdp-accordion': '/lit/js/bw-pdp-accordion.js',
-    'bw-pdp-accordion-item': '/lit/js/bw-pdp-accordion-item.js',
-    'bw-ytembed': '/lit/js/bw-ytembed.js',
-    'bw-columns': '/lit/js/bw-columns.js',
-    'bw-fw-banner': '/lit/js/bw-fw-banner.js',
-    'bw-2col-layout': '/lit/js/bw-2col-layout.js',
-    'bw-bgbanner-card': '/lit/js/bw-bgbanner-card.js',
-    'bw-overline-lists': '/lit/js/bw-overline-lists.js',
-    'bw-overline-list': '/lit/js/bw-overline-list.js',
-    'bw-icon-list': '/lit/js/bw-icon-list.js',
-    'bw-icon-lists': '/lit/js/bw-icon-lists.js'
+    'bw-pdp-accordion': './lit/js/bw-pdp-accordion.js',
+    'bw-pdp-accordion-item': './lit/js/bw-pdp-accordion-item.js',
+    'bw-ytembed': './lit/js/bw-ytembed.js',
+    'bw-columns': './lit/js/bw-columns.js',
+    'bw-fw-banner': './lit/js/bw-fw-banner.js',
+    'bw-2col-layout': './lit/js/bw-2col-layout.js',
+    'bw-bgbanner-card': './lit/js/bw-bgbanner-card.js',
+    'bw-overline-lists': './lit/js/bw-overline-lists.js',
+    'bw-overline-list': './lit/js/bw-overline-list.js',
+    'bw-icon-list': './lit/js/bw-icon-list.js',
+    'bw-icon-lists': './lit/js/bw-icon-lists.js'
   };
 
   const importComponent = (tagName) => {
