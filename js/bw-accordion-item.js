@@ -112,14 +112,17 @@ class BwAccordionItem extends LitElement {
   }
 
   updateHeight() {
-    setTimeout(() => {
-      const content = this.shadowRoot.querySelector(".collapse");
+    const content = this.shadowRoot.querySelector(".collapse");
+    if (!content) return;
+
+    // Use requestAnimationFrame for smoother updates
+    requestAnimationFrame(() => {
       if (this.open) {
         content.style.height = `${content.scrollHeight}px`;
       } else {
         content.style.height = "0";
       }
-    }, 0);
+    });
   }
 
   toggle() {

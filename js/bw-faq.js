@@ -5,6 +5,7 @@ class BwFAQ extends LitElement {
   static properties = {
     title: { type: String },
     padded: { type: Boolean },
+    smallH2: { type: Boolean },
   };
 
   static styles = css`
@@ -66,6 +67,10 @@ class BwFAQ extends LitElement {
           font-size: 40px;
           line-height: 48px;
         }
+
+        .small-h2 {
+          font-size: 36px;
+        }
       }
     }
 
@@ -83,6 +88,7 @@ class BwFAQ extends LitElement {
     super();
     this.title = "Frequently Asked Questions";
     this.padded = false;
+    this.smallH2 = false;
   }
 
   static instanceCounter = 0;
@@ -95,7 +101,7 @@ class BwFAQ extends LitElement {
   render() {
     return html`
       <section class="bw-faq-container ${this.padded ? "padded" : null}">
-        <h2 class="font-utopia">${this.title}</h2>
+        <h2 class="font-utopia ${this.smallH2 ? "small-h2" : null}">${this.title}</h2>
         <slot></slot>
       </section>
     `;

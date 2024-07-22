@@ -26,6 +26,10 @@ class CMSHero extends LitElement {
       container: cms-hero / inline-size;
     }
 
+    picture {
+      display: flex;
+    }
+
     .heroIMG {
       width: 100%;
       object-fit: cover;

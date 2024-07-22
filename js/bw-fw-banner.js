@@ -166,6 +166,7 @@ class BwFwBanner extends LitElement {
     ytEmbedLoaded: { type: Boolean },
     imageLoaded: { type: Boolean },
     overlineTextLoaded: { type: Boolean },
+    lazyLoad: { type: Boolean, attribute: "lazy-load" },
   };
 
   static instanceCounter = 0;
@@ -178,6 +179,7 @@ class BwFwBanner extends LitElement {
     this.ytEmbedLoaded = false;
     this.imageLoaded = false;
     this.overlineTextLoaded = false;
+    this.lazyLoad = false;
   }
 
   connectedCallback() {
@@ -196,6 +198,18 @@ class BwFwBanner extends LitElement {
     }
     await import("./bw-overline-text.js");
     this.overlineTextLoaded = true;
+  }
+
+  setupLazyLoading() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.loadComponents();
+          observer.unobserve(this);
+        }
+      });
+    });
+    observer.observe(this);
   }
 
   render() {

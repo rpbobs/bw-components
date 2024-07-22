@@ -36,55 +36,62 @@ class BwToc extends LitElement {
       animation: fadeIn 0.3s ease-in-out;
     }
 
-    .content-toc-wrapper {
+    .content-toc-container {
       width: 100%;
       height: 100%;
 
-      .content-toc {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        border-radius: 8px;
-        background: #fff;
+      .content-toc-wrapper {
+        position: sticky;
         z-index: 100;
         top: 150px;
-        height: auto;
-        position: sticky;
-        width: 100%;
-        /* Elevation/3 */
-        padding: 8px 0;
+        overflow: hidden;
+        background: #fff;
         box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
 
-        .content-toc-title {
-          font-size: var(--h5);
-          font-weight: 600;
-          padding: 16px;
-        }
+        .content-toc {
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          border-radius: 8px;
+          height: auto;
+          max-height: 456px;
+          overflow: hidden scroll;
+          width: 100%;
+          padding: 8px 0;
+          scrollbar-width: thin;
 
-        .content-toc__jumplink {
-          text-wrap: pretty;
-          padding: 10px 16px;
-          text-decoration: none;
-          font-weight: 400;
-          /* border-bottom: 1px solid #e0e0e0; */
-          color: rgba(0, 0, 0, 0.7);
-          line-height: 24px;
-
-          &:hover {
-            background-color: rgba(0, 0, 0, 0.04);
-            color: black;
+          .content-toc-title {
+            font-size: var(--h5);
+            font-weight: 600;
+            padding: 16px;
           }
 
-          &:last-of-type {
-            border-bottom: none;
+          .content-toc__jumplink {
+            text-wrap: pretty;
+            padding: 10px 16px;
+            text-decoration: none;
+            font-weight: 400;
+            /* border-bottom: 1px solid #e0e0e0; */
+            color: rgba(0, 0, 0, 0.7);
+            line-height: 24px;
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.04);
+              color: black;
+            }
+
+            &:last-of-type {
+              border-bottom: none;
+            }
           }
         }
       }
     }
 
     @media (max-width: 959px) {
-      .content-toc-wrapper {
-        .content-toc {
+      .content-toc-container {
+        .content-toc-wrapper {
           box-shadow: none;
           border: 1px solid #e0e0e0;
         }
@@ -122,11 +129,13 @@ class BwToc extends LitElement {
 
   render() {
     return html`
-      <div class="content-toc-wrapper">
-        <nav class="content-toc">
-          <span class="content-toc-title">${this.title}</span>
-          ${this.headers.map((header) => html` <a href="#${header.id}" class="content-toc__jumplink">${header.text}</a> `)}
-        </nav>
+      <div class="content-toc-container">
+        <div class="content-toc-wrapper">
+          <nav class="content-toc">
+            <span class="content-toc-title">${this.title}</span>
+            ${this.headers.map((header) => html` <a href="#${header.id}" class="content-toc__jumplink">${header.text}</a> `)}
+          </nav>
+        </div>
       </div>
     `;
   }
