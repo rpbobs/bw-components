@@ -103,6 +103,10 @@ class BwPDPAccordionItem extends LitElement {
       .bw-pdp-accordion-item__stars {
         gap: 4px;
       }
+
+      button h2 {
+        line-height: 28px;
+      }
     }
 
     /* Extra small devices (xs): 0px and up */
